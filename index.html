@@ -9,16 +9,94 @@
         .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
         .header { text-align: center; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 25px; }
         .header h1 { color: #8b3a3a; margin: 0; }
-        .info-block { background: #faf5f0; border-radius: 12px; padding: 15px; margin-bottom: 25px; line-height: 1.6; }
-        .question { margin-bottom: 18px; }
-        .question label { display: block; font-weight: 600; margin-bottom: 5px; }
-        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; }
-        .radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
-        .radio-group label { background: #f5f5f5; padding: 8px 16px; border-radius: 30px; cursor: pointer; border: 1px solid #ddd; }
+        .header p { font-size: 18px; color: #555; }
+        .info-block { background: #faf5f0; border-radius: 12px; padding: 15px; margin-bottom: 25px; line-height: 1.8; font-size: 16px; }
+        .info-block strong { color: #8b3a3a; }
+        
+        .question { margin-bottom: 22px; }
+        .question label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 18px; color: #333; }
+        .question .hint { font-size: 14px; color: #888; margin-bottom: 5px; }
+        
+        /* Поля ввода — крупнее и жирнее */
+        input, select, textarea { 
+            width: 100%; 
+            padding: 14px 12px; 
+            border: 2px solid #ddd; 
+            border-radius: 12px; 
+            box-sizing: border-box; 
+            font-size: 18px; 
+            font-weight: 600;
+            color: #222;
+            background: #fafafa;
+            transition: 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #8b3a3a;
+            background: white;
+        }
+        
+        /* Кнопки-варианты — чёткое выделение */
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 5px;
+        }
+        .radio-group label {
+            font-weight: 600;
+            font-size: 17px;
+            background: #f0f0f0;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.2s;
+            color: #333;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
         .radio-group input[type="radio"] { display: none; }
-        .radio-group input:checked + span { background: #8b3a3a; color: white; }
-        button { background: #8b3a3a; color: white; border: none; padding: 14px; width: 100%; border-radius: 30px; font-size: 18px; cursor: pointer; margin-top: 10px; }
-        .success { display: none; color: #2a7a2a; background: #e8f5e8; padding: 15px; border-radius: 12px; margin-top: 20px; text-align: center; }
+        .radio-group input[type="radio"]:checked + span {
+            background: #8b3a3a;
+            color: white;
+            border-radius: 30px;
+            padding: 4px 12px;
+        }
+        .radio-group label:has(input:checked) {
+            background: #8b3a3a;
+            color: white;
+            border-color: #8b3a3a;
+            box-shadow: 0 4px 8px rgba(139, 58, 58, 0.3);
+        }
+        
+        button { 
+            background: #8b3a3a; 
+            color: white; 
+            border: none; 
+            padding: 16px; 
+            width: 100%; 
+            border-radius: 30px; 
+            font-size: 20px; 
+            font-weight: bold;
+            cursor: pointer; 
+            margin-top: 10px; 
+            box-shadow: 0 4px 10px rgba(139, 58, 58, 0.3);
+            transition: 0.2s;
+        }
+        button:hover { background: #702e2e; }
+        
+        .success { 
+            display: none; 
+            color: #2a7a2a; 
+            background: #e8f5e8; 
+            padding: 20px; 
+            border-radius: 12px; 
+            margin-top: 20px; 
+            text-align: center; 
+            font-size: 18px;
+            font-weight: bold;
+        }
         .required { color: #b33a3a; }
     </style>
 </head>
@@ -26,7 +104,7 @@
 
 <div class="container">
     <div class="header">
-        <h1>💍 Иван & Мария</h1>
+        <h1>💍 Татьяна & Яков</h1>
         <p>приглашают вас на свадьбу</p>
     </div>
 
@@ -40,7 +118,7 @@
         <!-- 1. Имя и фамилия -->
         <div class="question">
             <label>1. Ваше имя и фамилия <span class="required">*</span></label>
-            <input type="text" id="fullname" required>
+            <input type="text" id="fullname" required placeholder="Например: Анна Смирнова">
         </div>
 
         <!-- 2. Присутствие -->
@@ -55,8 +133,9 @@
 
         <!-- 3. Обращение -->
         <div class="question">
-            <label>3. Как вам комфортнее, чтобы к вам обращались на празднике?<br><small>например: «Аня», «Анна», «Анна Сергеевна»</small></label>
-            <input type="text" id="address">
+            <label>3. Как вам комфортнее, чтобы к вам обращались на празднике?</label>
+            <div class="hint">например: «Аня», «Анна», «Анна Сергеевна»</div>
+            <input type="text" id="address" placeholder="Ваше предпочтение">
         </div>
 
         <!-- 4. Отношение -->
@@ -64,11 +143,11 @@
             <label>4. К кому из нас вы относитесь?</label>
             <select id="relation">
                 <option value="">Выберите</option>
-                <option value="Друзья Ивана">Друзья Ивана</option>
-                <option value="Друзья Марии">Друзья Марии</option>
+                <option value="Друзья Татьяны">Друзья Татьяны</option>
+                <option value="Друзья Якова">Друзья Якова</option>
                 <option value="Общие друзья">Общие друзья</option>
-                <option value="Родственники Ивана">Родственники Ивана</option>
-                <option value="Родственники Марии">Родственники Марии</option>
+                <option value="Родственники Татьяны">Родственники Татьяны</option>
+                <option value="Родственники Якова">Родственники Якова</option>
                 <option value="Коллеги">Коллеги</option>
                 <option value="Другое">Другое</option>
             </select>
@@ -77,13 +156,15 @@
         <!-- 5. Пожелания за столом -->
         <div class="question">
             <label>5. Есть ли пожелания по компании за столом?</label>
-            <textarea id="tableWishes" rows="2"></textarea>
+            <div class="hint">С кем бы вы хотели сидеть? Кого избежать?</div>
+            <textarea id="tableWishes" rows="2" placeholder="Ваши пожелания"></textarea>
         </div>
 
         <!-- 6. Комментарии ведущему -->
         <div class="question">
             <label>6. Есть ли комментарии или факты, которые могут пригодиться ведущему?</label>
-            <textarea id="hostComments" rows="2"></textarea>
+            <div class="hint">Увлечения, смешные истории, что вы не любите</div>
+            <textarea id="hostComments" rows="2" placeholder="Расскажите ведущему"></textarea>
         </div>
 
         <!-- 7. Такси -->
@@ -107,13 +188,14 @@
         <!-- 9. Телефон -->
         <div class="question">
             <label>9. Ваш номер телефона для связи <span class="required">*</span></label>
-            <input type="tel" id="phone" required>
+            <input type="tel" id="phone" required placeholder="+7 999 123 45 67">
         </div>
 
         <!-- 10. Ограничения по еде -->
         <div class="question">
             <label>10. Есть ли у вас ограничения или предпочтения по еде?</label>
-            <textarea id="food" rows="2"></textarea>
+            <div class="hint">Аллергии, вегетарианство, не любите острое и т.п.</div>
+            <textarea id="food" rows="2" placeholder="Ваши пожелания"></textarea>
         </div>
 
         <!-- 11. Шампанское -->
@@ -146,25 +228,26 @@
         <!-- 14. Предпочтения алкоголя -->
         <div class="question">
             <label>14. Если да — что предпочитаете?</label>
-            <input type="text" id="spiritsChoice">
+            <input type="text" id="spiritsChoice" placeholder="Коньяк, виски, водка, ром, джин...">
         </div>
 
         <!-- 15. Важное -->
         <div class="question">
             <label>15. Есть ли что-то, о чём нам важно знать заранее?</label>
-            <textarea id="importantInfo" rows="3"></textarea>
+            <textarea id="importantInfo" rows="3" placeholder="Любая важная информация"></textarea>
         </div>
 
         <button type="submit">💌 Отправить анкету</button>
     </form>
 
     <div id="successMessage" class="success">
-        ✅ Спасибо! Ваш ответ принят.
+        ✅ Спасибо! Ваш ответ принят.<br>
+        Ждём вас 18 августа в 16:00!
     </div>
 </div>
 
 <script>
-    // ===== ВСТАВЛЕНА ТВОЯ ССЫЛКА =====
+    // ===== ТВОЯ ССЫЛКА =====
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJYuORlNIiDC0QwP7jzdWKsM1zP6lvAecXJ3k6NGxHjv4UxOuhnz2fmGZG7kqFENh3MA/exec';
 
     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
@@ -198,8 +281,10 @@
 
             document.getElementById('successMessage').style.display = 'block';
             document.getElementById('weddingForm').reset();
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
         } catch (error) {
-            alert('Ошибка. Проверьте интернет и попробуйте ещё раз.');
+            alert('Ошибка при отправке. Проверьте интернет и попробуйте ещё раз.');
+            console.error(error);
         }
     });
 </script>
