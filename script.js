@@ -5,27 +5,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const msg = document.getElementById('formMessage');
   const btn = document.getElementById('submitBtn');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    msg.textContent = 'Отправка...';
+  const iframe = document.createElement('iframe');
+  iframe.name = 'hidden_iframe';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  form.target = 'hidden_iframe';
+  form.method = 'POST';
+  form.action = WEB_APP_URL;
+
+  form.addEventListener('submit', () => {
     btn.disabled = true;
+    msg.textContent = 'Отправка...';
 
-    try {
-      const data = new URLSearchParams(new FormData(form));
-      await fetch(WEB_APP_URL, {
-        method: 'POST',
-        body: data.toString(),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-        }
-      });
-
+    setTimeout(() => {
       msg.textContent = 'Спасибо! Ответ отправлен.';
       form.reset();
-    } catch (err) {
-      msg.textContent = 'Ошибка отправки.';
-    } finally {
       btn.disabled = false;
-    }
+    }, 1000);
   });
 });
