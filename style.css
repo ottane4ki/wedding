@@ -1,0 +1,155 @@
+:root{
+  --bg:#f8f4f1;
+  --card:#ffffff;
+  --text:#2b2626;
+  --muted:#6f6661;
+  --accent:#8b5e83;
+  --accent-dark:#6f4968;
+  --border:#eadfda;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);
+  color:var(--text);
+  line-height:1.5;
+}
+
+.page{
+  max-width:840px;
+  margin:0 auto;
+  padding:24px 16px 48px;
+}
+
+.hero,.details,.rsvp,.footer{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(45,34,34,.06);
+  padding:22px;
+  margin-bottom:18px;
+}
+
+.hero{
+  text-align:center;
+  background:linear-gradient(135deg,#fff 0%,#f7eef5 100%);
+}
+
+.eyebrow{
+  margin:0 0 10px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:12px;
+  color:var(--accent);
+  font-weight:700;
+}
+
+h1{
+  margin:0;
+  font-size:clamp(30px,5vw,46px);
+  line-height:1.1;
+}
+
+.date{
+  margin:12px 0 0;
+  font-size:18px;
+  color:var(--accent-dark);
+  font-weight:700;
+}
+
+h2{
+  margin:0 0 14px;
+  font-size:24px;
+}
+
+.detail-card{
+  display:grid;
+  gap:8px;
+  color:var(--muted);
+}
+
+label{
+  display:block;
+  margin:0 0 14px;
+  font-size:15px;
+  font-weight:600;
+}
+
+input[type="text"],
+input[type="tel"],
+select,
+textarea{
+  width:100%;
+  margin-top:8px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:13px 14px;
+  font:inherit;
+  background:#fff;
+  color:var(--text);
+  outline:none;
+}
+
+textarea{resize:vertical; min-height:92px}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(139,94,131,.12);
+}
+
+.radios{
+  margin-top:8px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.radios label{
+  margin:0;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:#fff;
+  font-weight:500;
+}
+
+.radios input{margin-right:8px}
+
+.required{
+  color:#b14e59;
+}
+
+.actions{
+  margin-top:8px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+button{
+  appearance:none;
+  border:none;
+  border-radius:14px;
+  padding:14px 18px;
+  background:var(--accent);
+  color:#fff;
+  font:inherit;
+  font-weight:700;
+}
+
+button:active{transform:translateY(1px)}
+#formMessage{
+  margin:0;
+  color:var(--accent-dark);
+  min-height:1.4em;
+}
+
+.footer{
+  text-align:center;
+  color:var(--muted);
+}
+
+@media (min-width:720px){
+  .hero,.details,.rsvp,.footer{padding:28px}
+}

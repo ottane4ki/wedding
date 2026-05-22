@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Приглашение на свадьбу</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Приглашение на свадьбу</p>
+      <h1>Мы будем рады видеть вас на нашем празднике</h1>
+      <p class="date">18.08.2026 • Ждём гостей к 16:00</p>
+    </section>
+
+    <section class="details">
+      <h2>Информация о торжестве</h2>
+      <div class="detail-card">
+        <p><strong>Дата:</strong> 18 августа 2026</p>
+        <p><strong>Время сбора гостей:</strong> 16:00</p>
+        <p><strong>Место:</strong> банкетный комплекс «Пушкинская усадьба», Зелёная ул., 1, городской посёлок Фёдоровское</p>
+        <p><strong>Дресс-код:</strong> уместный / формальный / коктейльный</p>
+      </div>
+    </section>
+
+    <section class="rsvp">
+      <h2>Анкета гостя</h2>
+
+      <form id="rsvpForm">
+        <label>Ваше имя и фамилия <span class="required">*</span>
+          <input name="Ваше имя и фамилия" type="text" required placeholder="Например: Анна Иванова">
+        </label>
+
+        <label>Сможете ли вы присутствовать на свадьбе? <span class="required">*</span>
+          <div class="radios">
+            <label><input type="radio" name="Сможете ли вы присутствовать на свадьбе?" value="Да" required> Да</label>
+            <label><input type="radio" name="Сможете ли вы присутствовать на свадьбе?" value="Нет"> Нет</label>
+            <label><input type="radio" name="Сможете ли вы присутствовать на свадьбе?" value="Возможно"> Возможно</label>
+          </div>
+        </label>
+
+        <label>Как вам комфортнее, чтобы к вам обращались на празднике?
+          <input name="Как вам комфортнее, чтобы к вам обращались на празднике?" type="text" placeholder="Например: Аня, Анна, Анна Сергеевна">
+        </label>
+
+        <label>К кому из нас вы относитесь?
+          <select name="К кому из нас вы относитесь?">
+            <option value="">— выберите —</option>
+            <option>Со стороны невесты</option>
+            <option>Со стороны жениха</option>
+            <option>Общие друзья</option>
+            <option>Коллеги</option>
+            <option>Другое</option>
+          </select>
+        </label>
+
+        <label>Есть ли пожелания по компании за столом?
+          <textarea name="Есть ли пожелания по компании за столом?" rows="3" placeholder="С кем хотите сидеть или не сидеть"></textarea>
+        </label>
+
+        <label>Есть ли комментарии или факты, которые могут пригодиться ведущему?
+          <textarea name="Есть ли комментарии или факты, которые могут пригодиться ведущему?" rows="3" placeholder="Например: важные нюансы, пожелания к программе"></textarea>
+        </label>
+
+        <label>Нужен ли вам транспорт/такси вечером после свадьбы?
+          <div class="radios">
+            <label><input type="radio" name="Нужен ли вам транспорт/такси вечером после свадьбы?" value="Да"> Да</label>
+            <label><input type="radio" name="Нужен ли вам транспорт/такси вечером после свадьбы?" value="Нет"> Нет</label>
+            <label><input type="radio" name="Нужен ли вам транспорт/такси вечером после свадьбы?" value="Возможно, свяжитесь"> Возможно, свяжитесь</label>
+          </div>
+        </label>
+
+        <label>Нужен ли вам трансфер до площадки?
+          <div class="radios">
+            <label><input type="radio" name="Нужен ли вам трансфер до площадки?" value="Да"> Да</label>
+            <label><input type="radio" name="Нужен ли вам трансфер до площадки?" value="Нет"> Нет</label>
+            <label><input type="radio" name="Нужен ли вам трансфер до площадки?" value="Возможно"> Возможно</label>
+          </div>
+        </label>
+
+        <label>Ваш номер телефона для связи <span class="required">*</span>
+          <input name="Ваш номер телефона для связи" type="tel" required placeholder="+7 ...">
+        </label>
+
+        <label>Есть ли у вас ограничения или предпочтения по еде?
+          <textarea name="Есть ли у вас ограничения или предпочтения по еде?" rows="3" placeholder="Например: вегетарианец, аллергия на орехи"></textarea>
+        </label>
+
+        <label>Будете ли вы пить шампанское?
+          <div class="radios">
+            <label><input type="radio" name="Будете ли вы пить шампанское?" value="Да"> Да</label>
+            <label><input type="radio" name="Будете ли вы пить шампанское?" value="Нет"> Нет</label>
+            <label><input type="radio" name="Будете ли вы пить шампанское?" value="Иногда"> Иногда</label>
+          </div>
+        </label>
+
+        <label>Будете ли вы пить вино?
+          <div class="radios">
+            <label><input type="radio" name="Будете ли вы пить вино?" value="Да"> Да</label>
+            <label><input type="radio" name="Будете ли вы пить вино?" value="Нет"> Нет</label>
+            <label><input type="radio" name="Будете ли вы пить вино?" value="Предпочитаю безалкогольные варианты"> Предпочитаю безалкогольные варианты</label>
+          </div>.
+        </label>
+
+        <label>Будете ли вы пить крепкий алкоголь?
+          <div class="radios">
+            <label><input type="radio" name="Будете ли вы пить крепкий алкоголь?" value="Да"> Да</label>
+            <label><input type="radio" name="Будете ли вы пить крепкий алкоголь?" value="Нет"> Нет</label>
+          </div>
+        </label>
+
+        <label>Если да — что предпочитаете?
+          <input name="Если да — что предпочитаете?" type="text" placeholder="Например: водка, виски, джин">
+        </label>
+
+        <label>Есть ли что-то, о чём нам важно знать заранее?
+          <textarea name="Есть ли что-то, о чём нам важно знать заранее?" rows="3"></textarea>
+        </label>
+
+        <div class="actions">
+          <button type="submit" id="submitBtn">Отправить</button>
+          <p id="formMessage" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p>Спасибо, что помогаете нам подготовить этот день.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
