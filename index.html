@@ -183,7 +183,7 @@
             </div>
         </div>
 
-        <!-- 9. Телефон -->
+        <!-- 9. Телефон — ВАЖНО: идёт после трансфера -->
         <div class="question">
             <label>9. Ваш номер телефона для связи <span class="required">*</span></label>
             <input type="tel" id="phone" required placeholder="+7 999 123 45 67">
@@ -214,7 +214,7 @@
             </div>
         </div>
 
-        <!-- 13. Крепкий алкоголь — исправлено! -->
+        <!-- 13. Крепкий алкоголь — теперь по умолчанию Нет -->
         <div class="question">
             <label>13. Будете ли вы пить крепкий алкоголь?</label>
             <div class="radio-group">
@@ -223,13 +223,13 @@
             </div>
         </div>
 
-        <!-- 14. Предпочтения алкоголя — теперь логично -->
+        <!-- 14. Предпочтения алкоголя -->
         <div class="question">
             <label>14. Если да — что предпочитаете?</label>
             <input type="text" id="spiritsChoice" placeholder="Коньяк, виски, водка, ром, джин...">
         </div>
 
-        <!-- 15. Важное -->
+        <!-- 15. Важное — последний вопрос -->
         <div class="question">
             <label>15. Есть ли что-то, о чём нам важно знать заранее?</label>
             <textarea id="importantInfo" rows="3" placeholder="Любая важная информация"></textarea>
@@ -245,17 +245,16 @@
 </div>
 
 <script>
-    // ===== ТВОЯ ССЫЛКА =====
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJYuORlNIiDC0QwP7jzdWKsM1zP6lvAecXJ3k6NGxHjv4UxOuhnz2fmGZG7kqFENh3MA/exec';
+    // ===== ВСТАВЬ СЮДА НОВУЮ ССЫЛКУ ПОСЛЕ РАЗВЁРТЫВАНИЯ =====
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5ezKZcw94lyyxGu-spgV9BpE3_IJVAAnNnASxsb1xbFEKIxyzlPsRu5sNyF0A2kGRyA/exec';
 
     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        // Логика: если крепкий алкоголь = Нет, то очищаем поле предпочтений
         const spiritsSelected = document.querySelector('input[name="spirits"]:checked')?.value || '';
         let spiritsChoiceValue = document.getElementById('spiritsChoice').value;
         if (spiritsSelected === 'Нет') {
-            spiritsChoiceValue = ''; // не отправляем "Мяу мяу"
+            spiritsChoiceValue = '';
         }
 
         const data = {
