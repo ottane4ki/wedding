@@ -1,135 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Приглашение на свадьбу</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <style>
+        body { background: #fcf8f0; font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .header { text-align: center; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 25px; }
+        .header h1 { color: #8b3a3a; margin: 0; }
+        .info-block { background: #faf5f0; border-radius: 12px; padding: 15px; margin-bottom: 25px; line-height: 1.6; }
+        .question { margin-bottom: 18px; }
+        .question label { display: block; font-weight: 600; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; }
+        .radio-group { display: flex; flex-wrap: wrap; gap: 10px; }
+        .radio-group label { background: #f5f5f5; padding: 8px 16px; border-radius: 30px; cursor: pointer; border: 1px solid #ddd; }
+        .radio-group input[type="radio"] { display: none; }
+        .radio-group input:checked + span { background: #8b3a3a; color: white; }
+        button { background: #8b3a3a; color: white; border: none; padding: 14px; width: 100%; border-radius: 30px; font-size: 18px; cursor: pointer; margin-top: 10px; }
+        .success { display: none; color: #2a7a2a; background: #e8f5e8; padding: 15px; border-radius: 12px; margin-top: 20px; text-align: center; }
+        .required { color: #b33a3a; }
+    </style>
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <p class="eyebrow">Приглашение на свадьбу</p>
-      <h1>Мы будем рады видеть вас на нашем празднике</h1>
-      <p class="date">18.08.2026 • Ждём гостей к 16:00</p>
-    </section>
 
-    <section class="details">
-      <h2>Информация о торжестве</h2>
-      <div class="detail-card">
-        <p><strong>Дата:</strong> 18 августа 2026</p>
-        <p><strong>Время сбора гостей:</strong> 16:00</p>
-        <p><strong>Место:</strong> банкетный комплекс «Пушкинская усадьба», Зелёная ул., 1, городской посёлок Фёдоровское</p>
-        <p><strong>Дресс-код:</strong> уместный / формальный / коктейльный</p>
-      </div>
-    </section>
+<div class="container">
+    <div class="header">
+        <h1>💍 Иван & Мария</h1>
+        <p>приглашают вас на свадьбу</p>
+    </div>
 
-    <section class="rsvp">
-      <h2>Анкета гостя</h2>
+    <div class="info-block">
+        <strong>📅 Дата:</strong> 18 августа 2026<br>
+        <strong>🕓 Сбор гостей:</strong> к 16:00<br>
+        <strong>📍 Место:</strong> Банкетный комплекс «Пушкинская усадьба», г.п. Фёдоровское, Зелёная ул., 1
+    </div>
 
-      <form id="rsvpForm">
-        <label>Ваше имя и фамилия <span class="required">*</span>
-          <input name="Ваше имя и фамилия" type="text" required placeholder="Например: Анна Иванова">
-        </label>
-
-        <label>Сможете ли вы присутствовать на свадьбе? <span class="required">*</span>
-          <div class="radios">
-            <label><input type="radio" name="Сможете ли вы присутствовать на свадьбе?" value="Да" required> Да</label>
-            <label><input type="radio" name="Сможете ли вы присутствовать на свадьбе?" value="Нет"> Нет</label>
-            <label><input type="radio" name="Сможете ли вы присутствовать на свадьбе?" value="Возможно"> Возможно</label>
-          </div>
-        </label>
-
-        <label>Как вам комфортнее, чтобы к вам обращались на празднике?
-          <input name="Как вам комфортнее, чтобы к вам обращались на празднике?" type="text" placeholder="Например: Аня, Анна, Анна Сергеевна">
-        </label>
-
-        <label>К кому из нас вы относитесь?
-          <select name="К кому из нас вы относитесь?">
-            <option value="">— выберите —</option>
-            <option>Со стороны невесты</option>
-            <option>Со стороны жениха</option>
-            <option>Общие друзья</option>
-            <option>Коллеги</option>
-            <option>Другое</option>
-          </select>
-        </label>
-
-        <label>Есть ли пожелания по компании за столом?
-          <textarea name="Есть ли пожелания по компании за столом?" rows="3" placeholder="С кем хотите сидеть или не сидеть"></textarea>
-        </label>
-
-        <label>Есть ли комментарии или факты, которые могут пригодиться ведущему?
-          <textarea name="Есть ли комментарии или факты, которые могут пригодиться ведущему?" rows="3" placeholder="Например: важные нюансы, пожелания к программе"></textarea>
-        </label>
-
-        <label>Нужен ли вам транспорт/такси вечером после свадьбы?
-          <div class="radios">
-            <label><input type="radio" name="Нужен ли вам транспорт/такси вечером после свадьбы?" value="Да"> Да</label>
-            <label><input type="radio" name="Нужен ли вам транспорт/такси вечером после свадьбы?" value="Нет"> Нет</label>
-            <label><input type="radio" name="Нужен ли вам транспорт/такси вечером после свадьбы?" value="Возможно, свяжитесь"> Возможно, свяжитесь</label>
-          </div>
-        </label>
-
-        <label>Нужен ли вам трансфер до площадки?
-          <div class="radios">
-            <label><input type="radio" name="Нужен ли вам трансфер до площадки?" value="Да"> Да</label>
-            <label><input type="radio" name="Нужен ли вам трансфер до площадки?" value="Нет"> Нет</label>
-            <label><input type="radio" name="Нужен ли вам трансфер до площадки?" value="Возможно"> Возможно</label>
-          </div>
-        </label>
-
-        <label>Ваш номер телефона для связи <span class="required">*</span>
-          <input name="Ваш номер телефона для связи" type="tel" required placeholder="+7 ...">
-        </label>
-
-        <label>Есть ли у вас ограничения или предпочтения по еде?
-          <textarea name="Есть ли у вас ограничения или предпочтения по еде?" rows="3" placeholder="Например: вегетарианец, аллергия на орехи"></textarea>
-        </label>
-
-        <label>Будете ли вы пить шампанское?
-          <div class="radios">
-            <label><input type="radio" name="Будете ли вы пить шампанское?" value="Да"> Да</label>
-            <label><input type="radio" name="Будете ли вы пить шампанское?" value="Нет"> Нет</label>
-            <label><input type="radio" name="Будете ли вы пить шампанское?" value="Иногда"> Иногда</label>
-          </div>
-        </label>
-
-        <label>Будете ли вы пить вино?
-          <div class="radios">
-            <label><input type="radio" name="Будете ли вы пить вино?" value="Да"> Да</label>
-            <label><input type="radio" name="Будете ли вы пить вино?" value="Нет"> Нет</label>
-            <label><input type="radio" name="Будете ли вы пить вино?" value="Предпочитаю безалкогольные варианты"> Предпочитаю безалкогольные варианты</label>
-          </div>.
-        </label>
-
-        <label>Будете ли вы пить крепкий алкоголь?
-          <div class="radios">
-            <label><input type="radio" name="Будете ли вы пить крепкий алкоголь?" value="Да"> Да</label>
-            <label><input type="radio" name="Будете ли вы пить крепкий алкоголь?" value="Нет"> Нет</label>
-          </div>
-        </label>
-
-        <label>Если да — что предпочитаете?
-          <input name="Если да — что предпочитаете?" type="text" placeholder="Например: водка, виски, джин">
-        </label>
-
-        <label>Есть ли что-то, о чём нам важно знать заранее?
-          <textarea name="Есть ли что-то, о чём нам важно знать заранее?" rows="3"></textarea>
-        </label>
-
-        <div class="actions">
-          <button type="submit" id="submitBtn">Отправить</button>
-          <p id="formMessage" aria-live="polite"></p>
+    <form id="weddingForm">
+        <!-- 1. Имя и фамилия -->
+        <div class="question">
+            <label>1. Ваше имя и фамилия <span class="required">*</span></label>
+            <input type="text" id="fullname" required>
         </div>
-      </form>
-    </section>
 
-    <footer class="footer">
-      <p>Спасибо, что помогаете нам подготовить этот день.</p>
-    </footer>
-  </main>
+        <!-- 2. Присутствие -->
+        <div class="question">
+            <label>2. Сможете ли вы присутствовать на свадьбе? <span class="required">*</span></label>
+            <div class="radio-group">
+                <label><input type="radio" name="attend" value="Да, обязательно" required> <span>Да, обязательно</span></label>
+                <label><input type="radio" name="attend" value="Да, но с опозданием"> <span>Да, но с опозданием</span></label>
+                <label><input type="radio" name="attend" value="К сожалению, нет"> <span>К сожалению, нет</span></label>
+            </div>
+        </div>
 
-  <script src="script.js"></script>
+        <!-- 3. Обращение -->
+        <div class="question">
+            <label>3. Как вам комфортнее, чтобы к вам обращались на празднике?<br><small>например: «Аня», «Анна», «Анна Сергеевна»</small></label>
+            <input type="text" id="address">
+        </div>
+
+        <!-- 4. Отношение -->
+        <div class="question">
+            <label>4. К кому из нас вы относитесь?</label>
+            <select id="relation">
+                <option value="">Выберите</option>
+                <option value="Друзья Ивана">Друзья Ивана</option>
+                <option value="Друзья Марии">Друзья Марии</option>
+                <option value="Общие друзья">Общие друзья</option>
+                <option value="Родственники Ивана">Родственники Ивана</option>
+                <option value="Родственники Марии">Родственники Марии</option>
+                <option value="Коллеги">Коллеги</option>
+                <option value="Другое">Другое</option>
+            </select>
+        </div>
+
+        <!-- 5. Пожелания за столом -->
+        <div class="question">
+            <label>5. Есть ли пожелания по компании за столом?</label>
+            <textarea id="tableWishes" rows="2"></textarea>
+        </div>
+
+        <!-- 6. Комментарии ведущему -->
+        <div class="question">
+            <label>6. Есть ли комментарии или факты, которые могут пригодиться ведущему?</label>
+            <textarea id="hostComments" rows="2"></textarea>
+        </div>
+
+        <!-- 7. Такси -->
+        <div class="question">
+            <label>7. Нужен ли вам транспорт/такси вечером после свадьбы?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="taxi" value="Да"> <span>Да</span></label>
+                <label><input type="radio" name="taxi" value="Нет" checked> <span>Нет</span></label>
+            </div>
+        </div>
+
+        <!-- 8. Трансфер -->
+        <div class="question">
+            <label>8. Нужен ли вам трансфер до площадки?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="transfer" value="Да"> <span>Да</span></label>
+                <label><input type="radio" name="transfer" value="Нет" checked> <span>Нет</span></label>
+            </div>
+        </div>
+
+        <!-- 9. Телефон -->
+        <div class="question">
+            <label>9. Ваш номер телефона для связи <span class="required">*</span></label>
+            <input type="tel" id="phone" required>
+        </div>
+
+        <!-- 10. Ограничения по еде -->
+        <div class="question">
+            <label>10. Есть ли у вас ограничения или предпочтения по еде?</label>
+            <textarea id="food" rows="2"></textarea>
+        </div>
+
+        <!-- 11. Шампанское -->
+        <div class="question">
+            <label>11. Будете ли вы пить шампанское?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="champagne" value="Да" checked> <span>Да</span></label>
+                <label><input type="radio" name="champagne" value="Нет"> <span>Нет</span></label>
+            </div>
+        </div>
+
+        <!-- 12. Вино -->
+        <div class="question">
+            <label>12. Будете ли вы пить вино?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="wine" value="Да" checked> <span>Да</span></label>
+                <label><input type="radio" name="wine" value="Нет"> <span>Нет</span></label>
+            </div>
+        </div>
+
+        <!-- 13. Крепкий алкоголь -->
+        <div class="question">
+            <label>13. Будете ли вы пить крепкий алкоголь?</label>
+            <div class="radio-group">
+                <label><input type="radio" name="spirits" value="Да" checked> <span>Да</span></label>
+                <label><input type="radio" name="spirits" value="Нет"> <span>Нет</span></label>
+            </div>
+        </div>
+
+        <!-- 14. Предпочтения алкоголя -->
+        <div class="question">
+            <label>14. Если да — что предпочитаете?</label>
+            <input type="text" id="spiritsChoice">
+        </div>
+
+        <!-- 15. Важное -->
+        <div class="question">
+            <label>15. Есть ли что-то, о чём нам важно знать заранее?</label>
+            <textarea id="importantInfo" rows="3"></textarea>
+        </div>
+
+        <button type="submit">💌 Отправить анкету</button>
+    </form>
+
+    <div id="successMessage" class="success">
+        ✅ Спасибо! Ваш ответ принят.
+    </div>
+</div>
+
+<script>
+    // ===== ВСТАВЛЕНА ТВОЯ ССЫЛКА =====
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJYuORlNIiDC0QwP7jzdWKsM1zP6lvAecXJ3k6NGxHjv4UxOuhnz2fmGZG7kqFENh3MA/exec';
+
+    document.getElementById('weddingForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const data = {
+            fullname: document.getElementById('fullname').value,
+            attend: document.querySelector('input[name="attend"]:checked')?.value || '',
+            address: document.getElementById('address').value,
+            relation: document.getElementById('relation').value,
+            tableWishes: document.getElementById('tableWishes').value,
+            hostComments: document.getElementById('hostComments').value,
+            taxi: document.querySelector('input[name="taxi"]:checked')?.value || '',
+            transfer: document.querySelector('input[name="transfer"]:checked')?.value || '',
+            phone: document.getElementById('phone').value,
+            food: document.getElementById('food').value,
+            champagne: document.querySelector('input[name="champagne"]:checked')?.value || '',
+            wine: document.querySelector('input[name="wine"]:checked')?.value || '',
+            spirits: document.querySelector('input[name="spirits"]:checked')?.value || '',
+            spiritsChoice: document.getElementById('spiritsChoice').value,
+            importantInfo: document.getElementById('importantInfo').value
+        };
+
+        try {
+            await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('weddingForm').reset();
+        } catch (error) {
+            alert('Ошибка. Проверьте интернет и попробуйте ещё раз.');
+        }
+    });
+</script>
+
 </body>
 </html>
