@@ -17,7 +17,6 @@
         .question label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 18px; color: #333; }
         .question .hint { font-size: 14px; color: #888; margin-bottom: 5px; }
         
-        /* Поля ввода — крупнее и жирнее */
         input, select, textarea { 
             width: 100%; 
             padding: 14px 12px; 
@@ -35,7 +34,6 @@
             background: white;
         }
         
-        /* Кнопки-варианты — чёткое выделение */
         .radio-group {
             display: flex;
             flex-wrap: wrap;
@@ -216,16 +214,16 @@
             </div>
         </div>
 
-        <!-- 13. Крепкий алкоголь -->
+        <!-- 13. Крепкий алкоголь — исправлено! -->
         <div class="question">
             <label>13. Будете ли вы пить крепкий алкоголь?</label>
             <div class="radio-group">
-                <label><input type="radio" name="spirits" value="Да" checked> <span>Да</span></label>
-                <label><input type="radio" name="spirits" value="Нет"> <span>Нет</span></label>
+                <label><input type="radio" name="spirits" value="Да"> <span>Да</span></label>
+                <label><input type="radio" name="spirits" value="Нет" checked> <span>Нет</span></label>
             </div>
         </div>
 
-        <!-- 14. Предпочтения алкоголя -->
+        <!-- 14. Предпочтения алкоголя — теперь логично -->
         <div class="question">
             <label>14. Если да — что предпочитаете?</label>
             <input type="text" id="spiritsChoice" placeholder="Коньяк, виски, водка, ром, джин...">
@@ -253,6 +251,13 @@
     document.getElementById('weddingForm').addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        // Логика: если крепкий алкоголь = Нет, то очищаем поле предпочтений
+        const spiritsSelected = document.querySelector('input[name="spirits"]:checked')?.value || '';
+        let spiritsChoiceValue = document.getElementById('spiritsChoice').value;
+        if (spiritsSelected === 'Нет') {
+            spiritsChoiceValue = ''; // не отправляем "Мяу мяу"
+        }
+
         const data = {
             fullname: document.getElementById('fullname').value,
             attend: document.querySelector('input[name="attend"]:checked')?.value || '',
@@ -266,8 +271,8 @@
             food: document.getElementById('food').value,
             champagne: document.querySelector('input[name="champagne"]:checked')?.value || '',
             wine: document.querySelector('input[name="wine"]:checked')?.value || '',
-            spirits: document.querySelector('input[name="spirits"]:checked')?.value || '',
-            spiritsChoice: document.getElementById('spiritsChoice').value,
+            spirits: spiritsSelected,
+            spiritsChoice: spiritsChoiceValue,
             importantInfo: document.getElementById('importantInfo').value
         };
 
