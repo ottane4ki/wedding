@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital@0;1&display=swap');
+
+body {
+    background: #6b1725;
+    font-family: 'Playfair Display', serif;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #6b1725;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0);
+}
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    color: #8b3a3a;
+    margin: 0;
+}
+
+.header p {
+    font-size: 18px;
+    color: #555;
+}
+
+.info-block {
+    background: #faf5f0;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.info-block strong {
+    color: #8b3a3a;
+}
+
+.question {
+    margin-bottom: 22px;
+}
+
+.question label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #333;
+}
+
+.question .hint {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+/* Поля ввода */
+input, select, textarea {
+    width: 100%;
+    padding: 14px 12px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    color: #637c46;
+    background: #fafafa;
+    transition: 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #8b3a3a;
+    background: white;
+}
+
+/* Подсказки в полях */
+/* Подсказки в полях (placeholder) — цвет #637c46 */
+input::placeholder, textarea::placeholder {
+    color: #637c46;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    opacity: 1;
+}
+
+/* Радио-кнопки — овальный фон, шрифт как в полях */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #33491b;
+    background: #f0f0f0;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group input[type="radio"]:checked + span {
+    background: #8b3a3a;
+    color: white;
+    border-radius: 30px;
+    padding: 4px 12px;
+}
+
+.radio-group label:has(input:checked) {
+    background: #8b3a3a;
+    color: white;
+    border-color: #8b3a3a;
+    box-shadow: 0 4px 8px rgba(139, 58, 58, 0.3);
+}
+
+/* Кнопка отправки */
+button {
+    font-family: 'Great Vibes', cursive;
+    font-size: 24px;
+    font-weight: 400;
+    background: #8b3a3a;
+    color: white;
+    border: none;
+    padding: 16px;
+    width: 100%;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(139, 58, 58, 0.3);
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #702e2e;
+}
+
+.success {
+    display: none;
+    color: white;
+    background: #8b3a3a; /* тёмно-красный фон, чтобы белый текст читался */
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
