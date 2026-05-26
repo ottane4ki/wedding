@@ -3,46 +3,39 @@
 body {
     background: #6b1725;
     font-family: 'Playfair Display', serif;
-    padding: 20px;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #6b1725;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 0px 0px rgba(0,0,0,0);
-}
-
-.header {
-    text-align: center;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
-    margin-bottom: 25px;
-}
-
-.header h1 {
-    color: #8b3a3a;
+    padding: 0;
     margin: 0;
 }
 
-.header p {
-    font-size: 18px;
-    color: #555;
+/* Контейнер — без отступов, без закруглений */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: #6b1725;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
 }
 
-.info-block {
-    background: #faf5f0;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 25px;
-    line-height: 1.8;
-    font-size: 16px;
+/* Обложка — без закруглений, на всю ширину */
+.cover-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    object-fit: cover;
 }
 
-.info-block strong {
-    color: #8b3a3a;
+/* Белый блок с формой */
+.form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .question {
@@ -84,16 +77,15 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* Подсказки в полях */
-/* Подсказки в полях (placeholder) — цвет #637c46 */
 input::placeholder, textarea::placeholder {
     color: #637c46;
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 16px;
-    opacity: 1;
+    opacity: 0.7;
 }
 
-/* Радио-кнопки — овальный фон, шрифт как в полях */
+/* Радио-кнопки */
 .radio-group {
     display: flex;
     flex-wrap: wrap;
@@ -159,7 +151,7 @@ button:hover {
 .success {
     display: none;
     color: white;
-    background: #8b3a3a; /* тёмно-красный фон, чтобы белый текст читался */
+    background: #8b3a3a;
     padding: 20px;
     border-radius: 12px;
     margin-top: 20px;
