@@ -4,27 +4,353 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Приглашение на свадьбу</title>
-    <!-- Вставь CSS сюда -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        body {
+            background: #6b1725;
+            font-family: 'Playfair Display', serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-image {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .form-wrapper {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .question {
+            margin-bottom: 22px;
+        }
+
+        .question label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .question .hint {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 12px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 18px;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            color: #637c46;
+            background: #fafafa;
+            transition: 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #8b3a3a;
+            background: white;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #637c46;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 16px;
+            opacity: 0.7;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 5px;
+        }
+
+        .radio-group label {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: #33491b;
+            background: #f0f0f0;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .radio-group input[type="radio"] {
+            display: none;
+        }
+
+        .radio-group input[type="radio"]:checked + span {
+            background: #8b3a3a;
+            color: white;
+            border-radius: 30px;
+            padding: 4px 12px;
+        }
+
+        .radio-group label:has(input:checked) {
+            background: #8b3a3a;
+            color: white;
+            border-color: #8b3a3a;
+            box-shadow: 0 4px 8px rgba(139, 58, 58, 0.3);
+        }
+
+        button {
+            font-family: 'Great Vibes', cursive;
+            font-size: 26px;
+            font-weight: 400;
+            background: #8b3a3a;
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(139, 58, 58, 0.3);
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #702e2e;
+        }
+
+        .success {
+            display: none;
+            color: #2a7a2a;
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .required {
+            color: #b33a3a;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Картинка на всю ширину -->
-    <img src="wedding-design.png" alt="Приглашение на свадьбу" class="main-image">
+    <div class="main-image">
+        <img src="wedding-design.png" alt="Приглашение на свадьбу">
+    </div>
 
     <div class="container">
         <div class="form-wrapper">
             <form id="weddingForm">
-                <!-- Все вопросы формы (которые ты вставляла ранее) -->
+                <!-- 1. Имя и фамилия -->
+                <div class="question">
+                    <label>1. Ваше имя и фамилия <span class="required">*</span></label>
+                    <input type="text" id="fullname" required placeholder="Например: Анна Смирнова">
+                </div>
+
+                <!-- 2. Присутствие -->
+                <div class="question">
+                    <label>2. Сможете ли вы присутствовать на свадьбе? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="attend" value="Да, обязательно" required> <span>Да, обязательно</span></label>
+                        <label><input type="radio" name="attend" value="Да, но с опозданием"> <span>Да, но с опозданием</span></label>
+                        <label><input type="radio" name="attend" value="К сожалению, нет"> <span>К сожалению, нет</span></label>
+                    </div>
+                </div>
+
+                <!-- 3. Обращение -->
+                <div class="question">
+                    <label>3. Как вам комфортнее, чтобы к вам обращались на празднике?</label>
+                    <div class="hint">например: «Аня», «Анна», «Анна Сергеевна»</div>
+                    <input type="text" id="address" placeholder="Ваше предпочтение">
+                </div>
+
+                <!-- 4. Отношение -->
+                <div class="question">
+                    <label>4. К кому из нас вы относитесь?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="relation" value="Друзья жениха"> <span>Друзья жениха</span></label>
+                        <label><input type="radio" name="relation" value="Друзья невесты"> <span>Друзья невесты</span></label>
+                        <label><input type="radio" name="relation" value="Общие друзья"> <span>Общие друзья</span></label>
+                        <label><input type="radio" name="relation" value="Родственники жениха"> <span>Родственники жениха</span></label>
+                        <label><input type="radio" name="relation" value="Родственники невесты"> <span>Родственники невесты</span></label>
+                        <label><input type="radio" name="relation" value="Коллеги"> <span>Коллеги</span></label>
+                        <label><input type="radio" name="relation" value="Другое"> <span>Другое</span></label>
+                    </div>
+                </div>
+
+                <!-- 5. Пожелания за столом -->
+                <div class="question">
+                    <label>5. Есть ли пожелания по компании за столом?</label>
+                    <div class="hint">С кем бы вы хотели сидеть? Кого избежать?</div>
+                    <textarea id="tableWishes" rows="2" placeholder="Ваши пожелания"></textarea>
+                </div>
+
+                <!-- 6. Комментарии ведущему -->
+                <div class="question">
+                    <label>6. Есть ли комментарии или факты, которые могут пригодиться ведущему?</label>
+                    <div class="hint">Увлечения, смешные истории, что вы не любите</div>
+                    <textarea id="hostComments" rows="2" placeholder="Расскажите ведущему"></textarea>
+                </div>
+
+                <!-- 7. Трансфер -->
+                <div class="question">
+                    <label>7. Нужен ли вам трансфер до площадки?</label>
+                    <div class="hint">Довезём от метро или другого места</div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="transfer" value="Да"> <span>Да</span></label>
+                        <label><input type="radio" name="transfer" value="Нет" checked> <span>Нет</span></label>
+                    </div>
+                </div>
+
+                <!-- 8. Такси -->
+                <div class="question">
+                    <label>8. Нужен ли вам транспорт/такси вечером после свадьбы?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="taxi" value="Да"> <span>Да</span></label>
+                        <label><input type="radio" name="taxi" value="Нет" checked> <span>Нет</span></label>
+                    </div>
+                </div>
+
+                <!-- 9. Телефон -->
+                <div class="question">
+                    <label>9. Ваш номер телефона для связи <span class="required">*</span></label>
+                    <input type="tel" id="phone" required placeholder="+7 999 123 45 67">
+                </div>
+
+                <!-- 10. Ограничения по еде -->
+                <div class="question">
+                    <label>10. Есть ли у вас ограничения или предпочтения по еде?</label>
+                    <div class="hint">Аллергии, вегетарианство, не любите острое и т.п.</div>
+                    <textarea id="food" rows="2" placeholder="Ваши пожелания"></textarea>
+                </div>
+
+                <!-- 11. Шампанское -->
+                <div class="question">
+                    <label>11. Будете ли вы пить шампанское?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="champagne" value="Да" checked> <span>Да</span></label>
+                        <label><input type="radio" name="champagne" value="Нет"> <span>Нет</span></label>
+                    </div>
+                </div>
+
+                <!-- 12. Вино -->
+                <div class="question">
+                    <label>12. Будете ли вы пить вино?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="wine" value="Да" checked> <span>Да</span></label>
+                        <label><input type="radio" name="wine" value="Нет"> <span>Нет</span></label>
+                    </div>
+                </div>
+
+                <!-- 13. Крепкий алкоголь -->
+                <div class="question">
+                    <label>13. Будете ли вы пить крепкий алкоголь?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="spirits" value="Да"> <span>Да</span></label>
+                        <label><input type="radio" name="spirits" value="Нет" checked> <span>Нет</span></label>
+                    </div>
+                </div>
+
+                <!-- 14. Предпочтения алкоголя -->
+                <div class="question">
+                    <label>14. Если да — что предпочитаете?</label>
+                    <input type="text" id="spiritsChoice" placeholder="Коньяк, виски, водка, ром, джин...">
+                </div>
+
+                <!-- 15. Важное -->
+                <div class="question">
+                    <label>15. Есть ли что-то, о чём нам важно знать заранее?</label>
+                    <textarea id="importantInfo" rows="3" placeholder="Любая важная информация"></textarea>
+                </div>
+
+                <button type="submit"> Отправить анкету</button>
             </form>
+
             <div id="successMessage" class="success">
-                ✅ Спасибо! Ваш ответ принят.<br>
+                 Спасибо! Ваш ответ принят.<br>
                 Ждём вас 18 августа в 16:00!
             </div>
         </div>
     </div>
 
     <script>
-        // Твой JavaScript
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5ezKZcw94lyyxGu-spgV9BpE3_IJVAAnNnASxsb1xbFEKIxyzlPsRu5sNyF0A2kGRyA/exec';
+
+        document.getElementById('weddingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const spiritsSelected = document.querySelector('input[name="spirits"]:checked')?.value || '';
+            let spiritsChoiceValue = document.getElementById('spiritsChoice').value;
+            if (spiritsSelected === 'Нет') {
+                spiritsChoiceValue = '';
+            }
+
+            const data = {
+                fullname: document.getElementById('fullname').value,
+                attend: document.querySelector('input[name="attend"]:checked')?.value || '',
+                address: document.getElementById('address').value,
+                relation: document.querySelector('input[name="relation"]:checked')?.value || '',
+                tableWishes: document.getElementById('tableWishes').value,
+                hostComments: document.getElementById('hostComments').value,
+                transfer: document.querySelector('input[name="transfer"]:checked')?.value || '',
+                taxi: document.querySelector('input[name="taxi"]:checked')?.value || '',
+                phone: document.getElementById('phone').value,
+                food: document.getElementById('food').value,
+                champagne: document.querySelector('input[name="champagne"]:checked')?.value || '',
+                wine: document.querySelector('input[name="wine"]:checked')?.value || '',
+                spirits: spiritsSelected,
+                spiritsChoice: spiritsChoiceValue,
+                importantInfo: document.getElementById('importantInfo').value
+            };
+
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('weddingForm').reset();
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                alert('Ошибка при отправке. Проверьте интернет и попробуйте ещё раз.');
+                console.error(error);
+            }
+        });
     </script>
 
 </body>
