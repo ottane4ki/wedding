@@ -35,10 +35,9 @@
         }
 
         .form-wrapper {
-            background: #6b1725;
+            background: #6b1725; /* ← бордовый, как ты хочешь */
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 0px 0px rgba(0,0,0,0);
         }
 
         .question {
@@ -46,10 +45,10 @@
         }
 
         .question img {
-            width: 300%;
+            width: 100%;
             max-width: 300px;
             display: block;
-            margin-bottom: 10px;
+            margin: 0 auto 10px auto;
             border-radius: 8px;
         }
 
@@ -169,13 +168,13 @@
             <form id="weddingForm">
                 <!-- 1. Имя и фамилия -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0653.png" alt="Ваше имя и фамилия">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0653.png" alt="Ваше имя и фамилия">
                     <input type="text" id="fullname" required placeholder="Например: Татьяна Вагнер">
                 </div>
 
                 <!-- 2. Присутствие -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0654.png" alt="Сможете ли вы присутствовать?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0654.png" alt="Сможете ли вы присутствовать?">
                     <div class="radio-group">
                         <label><input type="radio" name="attend" value="Да, обязательно" required> <span>Да, обязательно</span></label>
                         <label><input type="radio" name="attend" value="Да, но с опозданием"> <span>Да, но с опозданием</span></label>
@@ -185,13 +184,13 @@
 
                 <!-- 3. Обращение -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0655.png" alt="Как к вам обращаться?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0655.png" alt="Как к вам обращаться?">
                     <input type="text" id="address" placeholder="Например: Татьяна, Таня, Тане4ка">
                 </div>
 
                 <!-- 4. Отношение -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0656.png" alt="К кому из нас вы относитесь?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0656.png" alt="К кому из нас вы относитесь?">
                     <div class="radio-group">
                         <label><input type="radio" name="relation" value="Друзья жениха"> <span>Друзья жениха</span></label>
                         <label><input type="radio" name="relation" value="Друзья невесты"> <span>Друзья невесты</span></label>
@@ -205,19 +204,19 @@
 
                 <!-- 5. Пожелания за столом -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0657.png" alt="Пожелания по компании за столом">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0657.png" alt="Пожелания по компании за столом">
                     <textarea id="tableWishes" rows="2" placeholder="Хочу сидеть с женихом!"></textarea>
                 </div>
 
                 <!-- 6. Комментарии ведущему -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0658.png" alt="Комментарии ведущему">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0658.png" alt="Комментарии ведущему">
                     <textarea id="hostComments" rows="2" placeholder="Я невеста ;)"></textarea>
                 </div>
 
                 <!-- 7. Трансфер -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0659.png" alt="Нужен ли трансфер?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0659.png" alt="Нужен ли трансфер?">
                     <div class="radio-group">
                         <label><input type="radio" name="transfer" value="Да"> <span>Да</span></label>
                         <label><input type="radio" name="transfer" value="Нет" checked> <span>Нет</span></label>
@@ -226,7 +225,7 @@
 
                 <!-- 8. Такси -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0660.png" alt="Нужно ли такси?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0660.png" alt="Нужно ли такси?">
                     <div class="radio-group">
                         <label><input type="radio" name="taxi" value="Да"> <span>Да</span></label>
                         <label><input type="radio" name="taxi" value="Нет" checked> <span>Нет</span></label>
@@ -235,19 +234,19 @@
 
                 <!-- 9. Телефон -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0661.png" alt="Ваш номер телефона">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0661.png" alt="Ваш номер телефона">
                     <input type="tel" id="phone" required placeholder="+7 999 000 00 00">
                 </div>
 
                 <!-- 10. Ограничения по еде -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0662.png" alt="Ограничения по еде">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0662.png" alt="Ограничения по еде">
                     <textarea id="food" rows="2" placeholder="Например: никакого лука!"></textarea>
                 </div>
 
                 <!-- 11. Шампанское -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0663.png" alt="Шампанское?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0663.png" alt="Шампанское?">
                     <div class="radio-group">
                         <label><input type="radio" name="champagne" value="Да" checked> <span>Да</span></label>
                         <label><input type="radio" name="champagne" value="Нет"> <span>Нет</span></label>
@@ -256,7 +255,7 @@
 
                 <!-- 12. Вино -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0664.png" alt="Вино?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0664.png" alt="Вино?">
                     <div class="radio-group">
                         <label><input type="radio" name="wine" value="Да" checked> <span>Да</span></label>
                         <label><input type="radio" name="wine" value="Нет"> <span>Нет</span></label>
@@ -265,7 +264,7 @@
 
                 <!-- 13. Крепкий алкоголь -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0665.png" alt="Крепкий алкоголь?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0665.png" alt="Крепкий алкоголь?">
                     <div class="radio-group">
                         <label><input type="radio" name="spirits" value="Да"> <span>Да</span></label>
                         <label><input type="radio" name="spirits" value="Нет" checked> <span>Нет</span></label>
@@ -274,13 +273,13 @@
 
                 <!-- 14. Предпочтения алкоголя -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0666.png" alt="Что предпочитаете?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0666.png" alt="Что предпочитаете?">
                     <input type="text" id="spiritsChoice" placeholder="Коньяк, виски, водка, ром, джин...">
                 </div>
 
                 <!-- 15. Важное -->
                 <div class="question">
-                    <img src="https://github.com/ottane4ki/wedding/blob/main/img/IMG_0667.png" alt="Что важно знать?">
+                    <img src="https://raw.githubusercontent.com/ottane4ki/wedding/main/img/IMG_0667.png" alt="Что важно знать?">
                     <textarea id="importantInfo" rows="3" placeholder="Любая важная информация"></textarea>
                 </div>
 
